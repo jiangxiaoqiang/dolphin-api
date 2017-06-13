@@ -1,0 +1,41 @@
+group 'dolphin'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.5
+
+buildscript{
+    ext{
+        springBootVersion = '1.4.5.RELEASE'
+    }
+
+    repositories{
+        mavenCentral()
+    }
+
+    dependencies{
+        /**
+         * 从buildscript的repositories中获取jar包
+         */
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+jar {
+    baseName = 'dolphin-api'
+    version =  '0.0.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+/***
+ * 编译时的环境依赖
+ */
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
