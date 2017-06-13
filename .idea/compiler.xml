@@ -2,8 +2,18 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="api_main" target="1.5" />
+      <module name="api_test" target="1.5" />
+      <module name="business_main" target="1.5" />
+      <module name="business_test" target="1.5" />
+      <module name="common_main" target="1.5" />
+      <module name="common_test" target="1.5" />
+      <module name="data_main" target="1.5" />
+      <module name="data_test" target="1.5" />
       <module name="dolphin-api_main" target="1.5" />
       <module name="dolphin-api_test" target="1.5" />
+      <module name="web_main" target="1.5" />
+      <module name="web_test" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
