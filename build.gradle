@@ -1,31 +1,23 @@
 group 'dolphin'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
-apply plugin: 'spring-boot'
-
-sourceCompatibility = 1.5
-
-buildscript{
-    ext{
+buildscript {
+    ext {
         springBootVersion = '1.4.5.RELEASE'
     }
+    ext['tomcat.version'] = '8.0.35'
 
-    repositories{
+    repositories {
         mavenCentral()
     }
 
-    dependencies{
+    dependencies {
         /**
          * 从buildscript的repositories中获取jar包
          */
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
-}
 
-jar {
-    baseName = 'dolphin-api'
-    version =  '0.0.1'
+    }
 }
 
 repositories {
@@ -33,9 +25,34 @@ repositories {
 }
 
 /***
- * 编译时的环境依赖
+ * 所有子项目的通用配置
  */
-dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'spring-boot'
+    //maven { url 'http://repox.gtan.com:8078' }
+    repositories {
+        mavenCentral()
+        //jcenter()
+    }
+
+    dependencies{
+
+    }
+}
+
+project(":api") {
+
+    //apply from: ccCommonBuildScript
+
+    description = 'dolphin-api'
+
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.boot:spring-boot-starter')
+        compile group: 'org.apache.tomcat', name: 'tomcat-juli', version: property('tomcat.version')
+        compile("org.projectlombok:lombok:1.16.10")
+        compile("org.springframework.boot:spring-boot-devtools")
+        testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
 }
