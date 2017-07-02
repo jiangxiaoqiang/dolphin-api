@@ -13,11 +13,11 @@ import service.BookService;
 /**
  * Created by dolphin on 23/6/2017.
  */
-@ComponentScan(basePackages = {"dolphin.api.controllers","service","mapper"})
+@ComponentScan(basePackages = {"dolphin.api.controllers","service","mapper","dolphinweb.config"})
 @EnableCaching
 @MapperScan("mapper")
 @EnableConfigurationProperties(DataSourceConfig.class)
-@SpringBootApplication(scanBasePackages = {"dolphin.api.controllers","mapper"})
+@SpringBootApplication
 public class DolphinApplication {
     public static void main(String[] args) throws Exception {
         SpringApplication app = new SpringApplication(DolphinApplication.class);

@@ -1,6 +1,8 @@
 package dolphin.api.controllers;
 
 import com.fasterxml.jackson.databind.annotation.JsonAppend;
+import model.ResponseCode;
+import model.RestApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.*;
@@ -18,6 +20,7 @@ import model.Book;
 
 //RestController是一种Rest风格的Controller，可以直接返回对象而不返回视图，返回的对象可以使JSON，XML等
 @RestController
+@RequestMapping("/api/book")
 public class BookController {
 
     @Autowired
@@ -38,9 +41,13 @@ public class BookController {
      * @param id
      * @return
      */
-    @GetMapping("id")
-    public Book getBookByISBN(@RequestParam Long id) {
+    @GetMapping("/{id}")
+    public RestApiResponse getBookByISBN(@PathVariable Long id) {
+        RestApiResponse restApiResponse = new RestApiResponse();
+        restApiResponse.setCode(ResponseCode.REQUEST_SUCCESS);
+        restApiResponse.setMessage(ResponseCode.REQUEST_SUCCESS_MESSAGE);
         Book book = bookService.getBookById(id);
-        return book;
+        restApiResponse.setData(book);
+        return restApiResponse;
     }
 }
