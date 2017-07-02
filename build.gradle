@@ -48,11 +48,76 @@ project(":api") {
     description = 'dolphin-api'
 
     dependencies {
+        compile project(":business")
+        compile project(":data")
         compile('org.springframework.boot:spring-boot-starter-web')
         compile('org.springframework.boot:spring-boot-starter')
         compile group: 'org.apache.tomcat', name: 'tomcat-juli', version: property('tomcat.version')
         compile("org.projectlombok:lombok:1.16.10")
         compile("org.springframework.boot:spring-boot-devtools")
         testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+}
+
+project(":web"){
+
+    description = "web"
+
+    jar{
+        baseName = "dolphin-web"
+    }
+
+    dependencies{
+        compile project(':business')
+        compile project(':api')
+        compile project(':data')
+        compile('com.zaxxer:HikariCP:2.6.0')
+        compile("mysql:mysql-connector-java:5.1.24")
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.boot:spring-boot-starter')
+        compile group: 'org.apache.tomcat', name: 'tomcat-juli', version: property('tomcat.version')
+        compile("org.projectlombok:lombok:1.16.14")
+        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+        compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.24'
+        compile group: 'org.mybatis', name: 'mybatis', version: '3.4.2'
+        compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: '1.0.2'
+        testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+}
+
+project(":business"){
+
+    description = "business"
+
+    dependencies{
+        compile project(':data')
+        compile('org.springframework.boot:spring-boot-starter-web')
+    }
+}
+
+project(":data"){
+
+    description = "data"
+
+    dependencies{
+        compile project(':dolphin-mybatis')
+        compile("org.projectlombok:lombok:1.16.14")
+        compile('com.zaxxer:HikariCP:2.6.0')
+        compile("mysql:mysql-connector-java:5.1.24")
+        compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '1.1.1'
+        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+        compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.24'
+        compile group: 'org.mybatis', name: 'mybatis', version: '3.4.2'
+        compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: '1.0.2'
+        testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+}
+
+project(":dolphin-mybatis"){
+
+    description = "dolphin-mybatis"
+
+    dependencies {
+
     }
 }
