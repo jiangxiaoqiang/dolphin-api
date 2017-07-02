@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 //使用自动配置，主动添加并解析bean，配置文件等信息
 @EnableAutoConfiguration
+@RequestMapping("/api/")
 public class BookController {
     //设置访问的url
     @RequestMapping("/")
