@@ -41,6 +41,7 @@ public class BookController {
      * @param id
      * @return
      */
+    @CrossOrigin
     @GetMapping("/{id}")
     public RestApiResponse getBookByISBN(@PathVariable Long id) {
         RestApiResponse restApiResponse = new RestApiResponse();
