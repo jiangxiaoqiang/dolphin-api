@@ -43,12 +43,12 @@ public class BookController {
      */
     @CrossOrigin
     @GetMapping("/{id}")
-    public RestApiResponse getBookByISBN(@PathVariable Long id) {
+    public Book getBookByISBN(@PathVariable Long id) {
         RestApiResponse restApiResponse = new RestApiResponse();
         restApiResponse.setCode(ResponseCode.REQUEST_SUCCESS);
         restApiResponse.setMessage(ResponseCode.REQUEST_SUCCESS_MESSAGE);
         Book book = bookService.getBookById(id);
-        restApiResponse.setData(book);
-        return restApiResponse;
+        restApiResponse.setBook(book);
+        return book;
     }
 }

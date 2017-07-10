@@ -18,5 +18,5 @@ public class RestApiResponse {
     /**
      * 数据
      */
-    private Object data;
+    private Book book;
 }
