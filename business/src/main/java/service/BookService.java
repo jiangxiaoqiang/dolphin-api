@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by dolphin on 23/6/2017.
  */
@@ -15,11 +17,15 @@ public class BookService {
     @Autowired
     public BookMapper bookMapper;
 
-    public Book getBookByISBN(String isbn){
+    public Book getBookByISBN(String isbn) {
         return bookMapper.getBookByISBN(isbn);
     }
 
-    public Book getBookById(Long id){
+    public Book getBookById(Long id) {
         return bookMapper.getBookById(id);
+    }
+
+    public List<Book> getBooksByName(String name) {
+        return bookMapper.getBooksByName(name);
     }
 }
