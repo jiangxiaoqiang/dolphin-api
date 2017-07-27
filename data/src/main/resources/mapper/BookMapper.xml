@@ -21,4 +21,10 @@
         FROM book
         where id = #{id}
     </select>
+
+    <select id="getBooksByName" parameterType="String" resultMap="Book">
+        SELECT *
+        FROM book
+        where name like CONCAT('%', #{name}, '%')
+    </select>
 </mapper>

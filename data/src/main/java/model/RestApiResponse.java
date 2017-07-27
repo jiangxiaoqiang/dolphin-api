@@ -6,7 +6,7 @@ import lombok.Data;
  * Created by dolphin on 2/7/2017.
  */
 @Data
-public class RestApiResponse {
+public class RestApiResponse<T> {
     /**
      * 附加消息
      */
@@ -18,5 +18,5 @@ public class RestApiResponse {
     /**
      * 数据
      */
-    private Object data;
+    private T data;
 }

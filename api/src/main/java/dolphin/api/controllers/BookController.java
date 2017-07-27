@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import service.BookService;
 import model.Book;
 
+import java.util.List;
+
 /**
  * Created by dolphin on 13/6/2017.
  */
@@ -41,13 +43,25 @@ public class BookController {
      * @param id
      * @return
      */
+    @CrossOrigin
     @GetMapping("/{id}")
-    public RestApiResponse getBookByISBN(@PathVariable Long id) {
+    public RestApiResponse<Book> getBookByISBN(@PathVariable Long id) {
         RestApiResponse restApiResponse = new RestApiResponse();
         restApiResponse.setCode(ResponseCode.REQUEST_SUCCESS);
         restApiResponse.setMessage(ResponseCode.REQUEST_SUCCESS_MESSAGE);
         Book book = bookService.getBookById(id);
         restApiResponse.setData(book);
+        return restApiResponse;
+    }
+
+    @CrossOrigin
+    @GetMapping()
+    public RestApiResponse<List<Book>> getBooksByName(@RequestParam String name){
+        RestApiResponse restApiResponse = new RestApiResponse();
+        restApiResponse.setCode(ResponseCode.REQUEST_SUCCESS);
+        restApiResponse.setMessage(ResponseCode.REQUEST_SUCCESS_MESSAGE);
+        List<Book> books = bookService.getBooksByName(name);
+        restApiResponse.setData(books);
         return restApiResponse;
     }
 }
