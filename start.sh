@@ -4,9 +4,9 @@
 
 source version.properties
 
-count=`ps -ef | grep credit-system-web-boot | grep -v "grep" | wc -l`
+count=`ps -ef | grep dolphin-web | grep -v "grep" | wc -l`
 if [ $count -lt 1 ]; then
-	nohup /opt/app/local/jdk1.8.0_111/bin/java -Xmx8192M -Xms4096M -jar -Xdebug -Xrunjdwp:transport=dt_socket,suspend=n,server=y,address=5005 /opt/app/backend/credit-system-web-boot-$VERSION.jar --spring.config.location=application-jjxxzx-test.properties>/dev/null &
+	nohup java -Xmx512M -Xms256M -jar -Xdebug -Xrunjdwp:transport=dt_socket,suspend=n,server=y,address=5005	/opt/dolphin/backend/dolphin-web.jar --spring.config.location=application.properties>/dev/null &
 else
 	echo "process aready exists!"
 fi

@@ -40,24 +40,24 @@ gradle -p web -x test build
 echo "开始拷贝..."
 
 #拷贝程序主文件
-ansible piservers -m copy -a "src=$LOCAL_PATH/$PROGRAM_NAME dest=~/app-soft"
+#ansible piservers -m copy -a "src=$LOCAL_PATH/$PROGRAM_NAME dest=~/app-soft"
 
 #拷贝停止脚本
-ansible shuitu-webservers -m copy -a "src=./stop.sh dest=$SERVER_APP_PATH"
+ansible piservers -m copy -a "src=./stop.sh dest=$SERVER_APP_PATH"
 
 #拷贝启动脚本
-ansible shuitu-webservers -m copy -a "src=./start.sh dest=$SERVER_APP_PATH"
+ansible piservers -m copy -a "src=./start.sh dest=$SERVER_APP_PATH"
 
 #拷贝主配置文件
-ansible shuitu-webservers -m copy -a "src=./$CONFIG_FILE dest=$SERVER_APP_PATH"
+ansible piservers -m copy -a "src=./$CONFIG_FILE dest=$SERVER_APP_PATH"
 
 #拷贝版本配置文件
-ansible shuitu-webservers -m copy -a "src=./version.properties dest=$SERVER_APP_PATH"
+ansible piservers -m copy -a "src=./version.properties dest=$SERVER_APP_PATH"
 
-ansible shuitu-webservers -m command -a "date"
+ansible piservers -m command -a "date"
 
 echo "停止站点..."
-ansible shuitu-webservers -m command -a "chdir=$SERVER_APP_PATH bash ./stop.sh"
+ansible piservers -m command -a "chdir=$SERVER_APP_PATH bash ./stop.sh"
 
 echo "等待站点停止..."
 sleep 8
@@ -67,9 +67,9 @@ sleep 8
 #ansible shuitu-webservers -m command -a "mv $PROGRAM_PATH_INFORMATION_CENTER/$PROGRAM_NAME $PROGRAM_PATH_INFORMATION_CENTER/$PROGRAM_NAME-$CURRENT_TIME"
 
 echo "拷贝新文件..."
-ansible shuitu-webservers -a "cp ~/app-soft/$PROGRAM_NAME $SERVER_APP_PATH"
+ansible piservers -a "cp ~/app-soft/$PROGRAM_NAME $SERVER_APP_PATH"
 
 echo "启动站点..."
-ansible shuitu-webservers -m shell -a "bash ./start.sh chdir=$SERVER_APP_PATH"
+ansible piservers -m shell -a "bash ./start.sh chdir=$SERVER_APP_PATH"
 
 echo "部署完成"
