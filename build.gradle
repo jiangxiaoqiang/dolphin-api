@@ -4,7 +4,6 @@ version '1.0-SNAPSHOT'
 buildscript {
     ext {
         springBootVersion = '1.4.5.RELEASE'
-        projectVersion = '1.1.11'
     }
     ext['tomcat.version'] = '8.0.35'
 
@@ -21,6 +20,17 @@ buildscript {
     }
 }
 
+def getVersionCode() {
+    def versionFile = file("$rootDir/version.properties")
+    if (!versionFile.canRead()) {
+        throw new GradleException("Could not find version.properties!")
+    }
+    def versionProps = new Properties()
+    versionProps.load(new FileInputStream(versionFile))
+    def versionCode = versionProps['VERSION'].toString()
+    return versionCode
+}
+
 repositories {
     mavenCentral()
 }
@@ -31,20 +41,16 @@ repositories {
 allprojects {
     apply plugin: 'java'
     apply plugin: 'spring-boot'
-    //maven { url 'http://repox.gtan.com:8078' }
     repositories {
         mavenCentral()
-        //jcenter()
     }
 
-    dependencies{
+    dependencies {
 
     }
 }
 
 project(":api") {
-
-    //apply from: ccCommonBuildScript
 
     description = 'dolphin-api'
 
@@ -60,19 +66,18 @@ project(":api") {
     }
 }
 
-project(":web"){
+project(":web") {
 
     description = "web"
 
-    jar{
-        baseName = "dolphin-web"
+    jar {
+        baseName = "dolphin-web" + getVersionCode()
     }
 
-    task copyfile(){
-        println(projectVersion)
+    task copyfile() {
     }
 
-    dependencies{
+    dependencies {
         compile project(':business')
         compile project(':api')
         compile project(':data')
@@ -90,21 +95,21 @@ project(":web"){
     }
 }
 
-project(":business"){
+project(":business") {
 
     description = "business"
 
-    dependencies{
+    dependencies {
         compile project(':data')
         compile('org.springframework.boot:spring-boot-starter-web')
     }
 }
 
-project(":data"){
+project(":data") {
 
     description = "data"
 
-    dependencies{
+    dependencies {
         compile project(':dolphin-mybatis')
         compile("org.projectlombok:lombok:1.16.14")
         compile('com.zaxxer:HikariCP:2.6.0')
@@ -118,7 +123,7 @@ project(":data"){
     }
 }
 
-project(":dolphin-mybatis"){
+project(":dolphin-mybatis") {
 
     description = "dolphin-mybatis"
 
