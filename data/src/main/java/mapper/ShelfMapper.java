@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface ShelfMapper {
     List<Shelf> getShelfByUserId(Long userId);
+
+    int createShelf(Shelf shelf);
 }

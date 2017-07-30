@@ -58,6 +58,7 @@ project(":api") {
     dependencies {
         compile project(":business")
         compile project(":data")
+        compile project(":composite")
         compile('org.springframework.boot:spring-boot-starter-web')
         compile('org.springframework.boot:spring-boot-starter')
         compile group: 'org.apache.tomcat', name: 'tomcat-juli', version: property('tomcat.version')

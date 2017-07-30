@@ -18,4 +18,6 @@ public interface BookMapper {
     List<Book> getBooksByName(String name);
 
     List<Book> getBooksByIds(String ids);
+
+    int createBook(Book book);
 }

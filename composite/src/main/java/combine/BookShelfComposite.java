@@ -6,6 +6,7 @@ import model.Book;
 import model.Shelf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -31,7 +32,9 @@ public class BookShelfComposite {
         if (userShelf == null || userShelf.isEmpty()) {
             return null;
         }
-        String ids = userShelf.stream().map(shelf -> shelf.getBookId().toString()).collect(Collectors.joining(","));
+        String ids = userShelf.stream()
+                .map(shelf -> shelf.getBookId().toString())
+                .collect(Collectors.joining(","));
         return bookMapper.getBooksByIds(ids);
     }
 

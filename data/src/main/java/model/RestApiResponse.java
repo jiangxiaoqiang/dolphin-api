@@ -7,6 +7,17 @@ import lombok.Data;
  */
 @Data
 public class RestApiResponse<T> {
+
+    public RestApiResponse() {
+
+    }
+
+    public RestApiResponse(String message, int code, T data) {
+        this.message = message;
+        this.code = code;
+        this.data = data;
+    }
+
     /**
      * 附加消息
      */
