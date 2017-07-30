@@ -28,4 +28,8 @@ public class BookService {
     public List<Book> getBooksByName(String name) {
         return bookMapper.getBooksByName(name);
     }
+
+    public List<Book> getBooksByIds(String ids){
+        return getBooksByIds(ids);
+    }
 }

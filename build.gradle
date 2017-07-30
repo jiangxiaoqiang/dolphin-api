@@ -4,6 +4,7 @@ version '1.0-SNAPSHOT'
 buildscript {
     ext {
         springBootVersion = '1.4.5.RELEASE'
+        springVersion = '4.3.7'
     }
     ext['tomcat.version'] = '8.0.35'
 
@@ -63,6 +64,17 @@ project(":api") {
         compile("org.projectlombok:lombok:1.16.10")
         compile("org.springframework.boot:spring-boot-devtools")
         testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+}
+
+project(":composite") {
+
+    description = 'dolphin-composite'
+
+    dependencies {
+        compile project(":business")
+        compile project(":data")
+        compile("org.springframework:spring-context:" + springVersion + ".RELEASE")
     }
 }
 

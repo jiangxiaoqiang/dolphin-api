@@ -5,4 +5,5 @@ include 'data'
 include 'common'
 include 'web'
 include 'dolphin-mybatis'
+include('composite')
 

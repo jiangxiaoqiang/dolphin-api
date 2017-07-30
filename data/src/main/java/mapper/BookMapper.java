@@ -2,6 +2,7 @@ package mapper;
 
 import model.Book;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -15,4 +16,6 @@ public interface BookMapper {
     Book getBookById(Long id);
 
     List<Book> getBooksByName(String name);
+
+    List<Book> getBooksByIds(String ids);
 }

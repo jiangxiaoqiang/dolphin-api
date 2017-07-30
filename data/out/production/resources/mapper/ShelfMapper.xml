@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.ShelfMapper">
+    <resultMap id="Book" type="model.Shelf">
+        <result column="id" property="id"/>
+        <result column="book_id" property="bookId"/>
+        <result column="user_id" property="userId"/>
+        <result column="add_date" property="addDate"/>
+        <result column="update_date" property="updateDate"/>
+    </resultMap>
+
+    <select id="getShelfByUserId" parameterType="Long" resultMap="Shelf">
+        SELECT *
+        FROM shelf
+        where user_id = #{userId}
+    </select>
+</mapper>
