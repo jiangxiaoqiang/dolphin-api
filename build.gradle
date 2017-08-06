@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 buildscript {
     ext {
         springBootVersion = '1.4.5.RELEASE'
-        springVersion = '4.3.7'
+        springVersion = '4.3.7.RELEASE'
     }
     ext['tomcat.version'] = '8.0.35'
 
@@ -51,6 +51,14 @@ allprojects {
     }
 }
 
+project(":common"){
+    description =''
+
+    dependencies{
+        compile("org.springframework:spring-context:"+springVersion)
+    }
+}
+
 project(":api") {
 
     description = 'dolphin-api'
@@ -59,8 +67,7 @@ project(":api") {
         compile project(":business")
         compile project(":data")
         compile project(":composite")
-        compile('org.springframework.boot:spring-boot-starter-web')
-        compile('org.springframework.boot:spring-boot-starter')
+        compile project(":common")
         compile group: 'org.apache.tomcat', name: 'tomcat-juli', version: property('tomcat.version')
         compile("org.projectlombok:lombok:1.16.10")
         compile("org.springframework.boot:spring-boot-devtools")
@@ -75,7 +82,7 @@ project(":composite") {
     dependencies {
         compile project(":business")
         compile project(":data")
-        compile("org.springframework:spring-context:" + springVersion + ".RELEASE")
+        compile("org.springframework:spring-context:" + springVersion)
     }
 }
 

@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class Shelf implements Serializable{
     private String id;
     private Long bookId;
-    private BigInteger userId;
+    private Long userId;
     private LocalDateTime addDate;
     private LocalDateTime updateDate;
     private Integer state;

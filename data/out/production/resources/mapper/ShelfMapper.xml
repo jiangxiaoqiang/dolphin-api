@@ -15,4 +15,19 @@
         FROM shelf
         where user_id = #{userId}
     </select>
+
+    <insert id="createShelf" parameterType="model.Shelf">
+        INSERT INTO shelf(
+        id,
+        book_id,
+        user_id,
+        add_date,
+        update_date)
+        VALUES(
+        #{id},
+        #{bookId},
+        #{userId},
+        #{addDate},
+        #{updateDate})
+    </insert>
 </mapper>
