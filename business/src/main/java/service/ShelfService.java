@@ -1,5 +1,6 @@
 package service;
 
+import mapper.BookMapper;
 import mapper.ShelfMapper;
 import model.Book;
 import model.Shelf;
@@ -19,12 +20,22 @@ public class ShelfService {
     @Autowired
     private ShelfMapper shelfMapper;
 
+    @Autowired
+    private BookMapper bookMapper;
+
     public List<Shelf> getShelfByUserId(long userId) {
         return shelfMapper.getShelfByUserId(userId);
     }
 
-    public int addBook(Book book,long userId){
-        Shelf shelf=new Shelf();
+    public int addBook(Book book, long userId) {
+        if ("1".equals(book.getInitial())) {
+            /**
+             * 首次增加，直接往书库中写入书籍信息
+             * 暂时不考虑增加审核过程
+             */
+            bookMapper.createBook(book);
+        }
+        Shelf shelf = new Shelf();
         shelf.setBookId(book.getId());
         shelf.setUserId(userId);
         shelf.setId(UUID.randomUUID().toString());
