@@ -36,4 +36,12 @@ public class Book {
      * 价格
      */
     private String price;
+
+    /**
+     * 是不是初次添加书籍
+     * 向书架(Book Shelf)中增加书籍时，如果书库中不存在此书，则是初次添加书籍
+     * 将书籍信息添加到书库中，关联信息放入书架中
+     * 如果书库中存在此书，则不是初次增加书籍，直接将书库中的书与书架关联即可
+     */
+    private String initial;
 }

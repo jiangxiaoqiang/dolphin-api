@@ -33,4 +33,19 @@
         FROM book
         where ID in CONCAT('%', #{ids}, '%')
     </select>
+
+    <insert id="createBook" parameterType="model.Book">
+        INSERT INTO shelf(
+        id,
+        name,
+        isbn,
+        price,
+        publisher)
+        VALUES(
+        #{id},
+        #{name},
+        #{isbn},
+        #{price},
+        #{publisher})
+    </insert>
 </mapper>

@@ -13,7 +13,12 @@ import service.BookService;
 /**
  * Created by dolphin on 23/6/2017.
  */
-@ComponentScan(basePackages = {"dolphin.api.controllers","service","mapper","dolphinweb.config"})
+@ComponentScan(basePackages = {
+        "dolphin.api.controllers",
+        "service",
+        "mapper",
+        "dolphinweb.config",
+        "combine"})
 @EnableCaching
 @MapperScan("mapper")
 @EnableConfigurationProperties(DataSourceConfig.class)
