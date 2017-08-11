@@ -1,6 +1,5 @@
 package dolphinweb;
 
-import dolphin.api.controllers.BookController;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,13 +7,12 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.system.ApplicationPidFileWriter;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
-import service.BookService;
 
 /**
  * Created by dolphin on 23/6/2017.
  */
 @ComponentScan(basePackages = {
-        "dolphin.api.controllers",
+        "dolphinweb.controllers",
         "service",
         "mapper",
         "dolphinweb.config",

@@ -1,6 +1,5 @@
-package dolphin.api.controllers;
+package dolphinweb.controllers;
 
-import com.mysql.jdbc.StringUtils;
 import combine.BookShelfComposite;
 import exception.DolphinValidateException;
 import exception.StandardErrorInfo;
