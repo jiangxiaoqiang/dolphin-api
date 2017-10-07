@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import service.BookService;
 import model.Book;
+import service.ScalaBookService;
 
 import java.util.List;
 
@@ -21,9 +22,18 @@ import java.util.List;
 @RequestMapping("/api/book")
 public class BookController {
 
+
+    @Autowired
+    public ScalaBookService bookServiceScala;
+
     @Autowired
     @Qualifier(value = "bookService")
     private BookService bookService;
+
+    public BookController(ScalaBookService bookServiceScala) {
+        this.bookServiceScala = bookServiceScala;
+    }
+
 
     /**
      * @param isbn
@@ -57,6 +67,10 @@ public class BookController {
         restApiResponse.setCode(ResponseCode.REQUEST_SUCCESS);
         restApiResponse.setMessage(ResponseCode.REQUEST_SUCCESS_MESSAGE);
         List<Book> books = bookService.getBooksByName(name);
+
+
+
+
         restApiResponse.setData(books);
         return restApiResponse;
     }
