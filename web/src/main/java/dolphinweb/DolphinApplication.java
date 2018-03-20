@@ -27,17 +27,8 @@ import java.util.List;
 @SpringBootApplication
 public class DolphinApplication {
     public static void main(String[] args) throws Exception {
-        Book book1 = new Book();
-        book1.setId((long) 1);
-        List<Book> bookList = new ArrayList();
-        bookList.add(book1);
-        long sumId = bookList.stream()
-                .mapToLong(Book::getId)
-                .sum();
-
-
-        //SpringApplication app = new SpringApplication(DolphinApplication.class);
-        //app.addListeners(new ApplicationPidFileWriter("app.pid"));
-        //app.run(args);
+        SpringApplication app = new SpringApplication(DolphinApplication.class);
+        app.addListeners(new ApplicationPidFileWriter("app.pid"));
+        app.run(args);
     }
 }
