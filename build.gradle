@@ -59,7 +59,7 @@ project(":common") {
     }
 }
 
-project(":api") {
+/*project(":api") {
 
     description = 'dolphin-api'
 
@@ -75,7 +75,7 @@ project(":api") {
         compile("org.springframework.boot:spring-boot-test:" + springBootVersion)
         testCompile group: 'junit', name: 'junit', version: '4.12'
     }
-}
+}*/
 
 project(":composite") {
 
@@ -102,7 +102,9 @@ project(":web") {
     dependencies {
         compile project(':business')
         compile project(':api')
+        compile project(':common')
         compile project(':data')
+        compile project(':composite')
         compile('com.zaxxer:HikariCP:2.6.0')
         compile("mysql:mysql-connector-java:5.1.24")
         compile('org.springframework.boot:spring-boot-starter-web')
