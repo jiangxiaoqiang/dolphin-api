@@ -9,13 +9,10 @@ import org.springframework.boot.system.ApplicationPidFileWriter;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
-=======
 import java.net.URL;
 import java.net.URLClassLoader;
->>>>>>> de4803709c7907d9d617abf83c55223acb560da7
 
 /**
  * Created by dolphin on 23/6/2017.
