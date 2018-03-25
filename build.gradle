@@ -8,7 +8,7 @@ buildscript {
     }
     ext['tomcat.version'] = '8.0.35'
 
-    repositories {  
+    repositories {
         mavenCentral()
     }
 
@@ -50,6 +50,13 @@ allprojects {
 
     }
 }
+
+
+task wrapper(type: Wrapper) {
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '3.2.1'
+}
+
 
 project(":common") {
     description = ''
