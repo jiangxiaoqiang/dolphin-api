@@ -29,17 +29,8 @@ import java.net.URLClassLoader;
 @SpringBootApplication
 public class DolphinApplication {
     public static void main(String[] args) throws Exception {
-        ClassLoader classLoader=ClassLoader.getSystemClassLoader();
-
-        URL[] urls =((URLClassLoader)classLoader).getURLs();
-
-        for (URL url:urls)
-        {
-            System.out.println(url.getFile());
-        }
-
-        //SpringApplication app = new SpringApplication(DolphinApplication.class);
-        //app.addListeners(new ApplicationPidFileWriter("app.pid"));
-        //app.run(args);
+        SpringApplication app = new SpringApplication(DolphinApplication.class);
+        app.addListeners(new ApplicationPidFileWriter("app.pid"));
+        app.run(args);
     }
 }
