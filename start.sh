@@ -9,7 +9,7 @@ source ${APP_PATH}/version.properties
 
 count=`ps -ef | grep dolphin-web-${VERSION} | grep -v "grep" | wc -l`
 if [ $count -lt 1 ]; then
-	nohup ${JAVA_HOME}/bin/java -Xmx512M -Xms256M \
+	setsid ${JAVA_HOME}/bin/java -Xmx512M -Xms256M \
 	-jar -Xdebug -Xrunjdwp:transport=dt_socket,suspend=n,server=y,address=5005	\
 	${APP_PATH}/dolphin-web-${VERSION}.jar \
 	--spring.config.location=${APP_PATH}/application.properties>/dev/null &
