@@ -15,8 +15,6 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    ScalaBookService scalaBookService;
-
     public int createUser(User user) {
         return userMapper.createUser(user);
     }

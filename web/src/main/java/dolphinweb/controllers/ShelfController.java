@@ -6,6 +6,7 @@ import exception.StandardErrorInfo;
 import model.Book;
 import model.ResponseCode;
 import model.RestApiResponse;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +36,7 @@ public class ShelfController {
 
     @RequestMapping("add")
     public RestApiResponse<Integer> addShelfBook(Book book) {
-        if (org.apache.commons.lang3.StringUtils.isBlank(book.getIsbn())) {
+        if (StringUtils.isBlank(book.getIsbn())) {
             throw new DolphinValidateException(StandardErrorInfo.ISBN_NULL_ERROR, StandardErrorInfo.ISBN_NULL_ERROR_MESSAGE);
         }
         int result = shelfService.addBook(book, 1);

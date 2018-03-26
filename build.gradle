@@ -93,7 +93,7 @@ project(":web") {
     description = "web"
 
     jar {
-        baseName = "dolphin-web" + getVersionCode()
+        baseName = "dolphin-web-" + getVersionCode()
     }
 
     task copyfile() {
