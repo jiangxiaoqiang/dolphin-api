@@ -3,7 +3,7 @@
 #nohup java -Xmx8192M -Xms4096M -jar credit-system-web-boot-1.0.0.jar --spring.config.location=application-jjxxzx-test.properties >/dev/null &
 
 readonly JAVA_HOME='/opt/dolphin/jdk1.8.0_161'
-readonly APP_PATH='/var/lib/jenkins/workspace/dolphin-api'
+readonly APP_PATH='/opt/dolphin/backend'
 
 source ${APP_PATH}/version.properties
 
