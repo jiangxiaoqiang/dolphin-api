@@ -3,9 +3,9 @@
 #nohup java -Xmx8192M -Xms4096M -jar credit-system-web-boot-1.0.0.jar --spring.config.location=application-jjxxzx-test.properties >/dev/null &
 
 readonly JAVA_HOME='/opt/dolphin/jdk1.8.0_161'
-readonly APP_PATH='/var/lib/jenkins/workspace/dolphin-api/web/build/libs'
+readonly APP_PATH='/var/lib/jenkins/workspace/dolphin-api'
 
-source version.properties
+source ${APP_PATH}/version.properties
 
 count=`ps -ef | grep dolphin-web-${VERSION} | grep -v "grep" | wc -l`
 if [ $count -lt 1 ]; then
