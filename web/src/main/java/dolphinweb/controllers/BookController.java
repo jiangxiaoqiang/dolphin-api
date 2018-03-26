@@ -21,9 +21,17 @@ import java.util.List;
 @RequestMapping("/api/book")
 public class BookController {
 
+
+   // @Autowired
+    //public ScalaBookService bookServiceScala;
+
     @Autowired
     @Qualifier(value = "bookService")
     private BookService bookService;
+
+    /*public BookController(ScalaBookService bookServiceScala) {
+        this.bookServiceScala = bookServiceScala;
+    }*/
 
 
     /**

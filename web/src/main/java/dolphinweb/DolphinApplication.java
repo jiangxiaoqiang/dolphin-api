@@ -9,6 +9,11 @@ import org.springframework.boot.system.ApplicationPidFileWriter;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.net.URL;
+import java.net.URLClassLoader;
+
 /**
  * Created by dolphin on 23/6/2017.
  */
@@ -24,8 +29,17 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 public class DolphinApplication {
     public static void main(String[] args) throws Exception {
-        SpringApplication app = new SpringApplication(DolphinApplication.class);
-        app.addListeners(new ApplicationPidFileWriter("app.pid"));
-        app.run(args);
+        ClassLoader classLoader=ClassLoader.getSystemClassLoader();
+
+        URL[] urls =((URLClassLoader)classLoader).getURLs();
+
+        for (URL url:urls)
+        {
+            System.out.println(url.getFile());
+        }
+
+        //SpringApplication app = new SpringApplication(DolphinApplication.class);
+        //app.addListeners(new ApplicationPidFileWriter("app.pid"));
+        //app.run(args);
     }
 }

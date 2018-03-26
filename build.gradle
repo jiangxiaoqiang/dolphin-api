@@ -51,6 +51,13 @@ allprojects {
     }
 }
 
+
+task wrapper(type: Wrapper) {
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '4.6'
+}
+
+
 project(":common") {
     description = ''
 
