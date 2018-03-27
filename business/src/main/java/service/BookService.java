@@ -25,11 +25,15 @@ public class BookService {
         return bookMapper.getBookById(id);
     }
 
+    public int createBook(Book book) {
+        return bookMapper.createBook(book);
+    }
+
     public List<Book> getBooksByName(String name) {
         return bookMapper.getBooksByName(name);
     }
 
-    public List<Book> getBooksByIds(String ids){
+    public List<Book> getBooksByIds(String ids) {
         return getBooksByIds(ids);
     }
 }
