@@ -5,6 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * @author jiangtingqiang@gmail.com
@@ -15,7 +16,7 @@ public class Shelf implements Serializable{
     private String id;
     private Long bookId;
     private Long userId;
-    private LocalDateTime addDate;
-    private LocalDateTime updateDate;
+    private Date addDate;
+    private Date updateDate;
     private Integer state;
 }
