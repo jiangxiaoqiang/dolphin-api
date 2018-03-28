@@ -38,6 +38,7 @@ public class ShelfService {
         Shelf shelf = new Shelf();
         shelf.setBookId(book.getId());
         shelf.setUserId(userId);
+        shelf.setState(1);
         shelf.setId(UUID.randomUUID().toString());
         return shelfMapper.createShelf(shelf);
     }

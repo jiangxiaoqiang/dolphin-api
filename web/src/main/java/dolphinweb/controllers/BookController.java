@@ -13,10 +13,6 @@ import java.util.List;
 /**
  * Created by dolphin on 13/6/2017.
  */
-//表明这是一个 Controller
-//@Controller
-
-//RestController是一种Rest风格的Controller，可以直接返回对象而不返回视图，返回的对象可以使JSON，XML等
 @RestController
 @RequestMapping("/api/book")
 public class BookController {
