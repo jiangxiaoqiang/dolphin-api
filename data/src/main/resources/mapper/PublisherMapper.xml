@@ -16,20 +16,24 @@
         where status = 1
     </select>
 
-    <insert id="createShelf" parameterType="model.Shelf">
-        INSERT INTO shelf(
-        id,
-        book_id,
-        user_id,
+    <select id="findPublisherByName" parameterType="String" resultMap="Publisher">
+        SELECT *
+        FROM publisher
+        where name = #{name}
+    </select>
+
+    <insert id="create" parameterType="model.Publisher">
+        INSERT INTO publisher(
+        name,
+        code,
         add_date,
         update_date,
-        state)
+        status)
         VALUES(
-        #{id},
-        #{bookId},
-        #{userId},
+        #{name},
+        #{code},
         #{addDate},
         #{updateDate},
-        #{state})
+        #{status})
     </insert>
 </mapper>

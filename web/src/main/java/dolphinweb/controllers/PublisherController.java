@@ -33,4 +33,14 @@ public class PublisherController {
         List<Publisher> publisherList = publisherService.getAll();
         return new RestApiResponse<>(ResponseCode.REQUEST_SUCCESS_MESSAGE, ResponseCode.REQUEST_SUCCESS, publisherList);
     }
+
+    @CrossOrigin
+    @PostMapping("")
+    public RestApiResponse<Integer> create(@RequestBody Publisher publisher) {
+        if(StringUtils.isBlank(publisher.getName())){
+            throw new DolphinValidateException(StandardErrorInfo.PUBLISHER_NAME_NULL_ERROR, StandardErrorInfo.PUBLISHER_NAME_NULL_ERROR_MESSAGE);
+        }
+        int publisherCreateResult = publisherService.create(publisher);
+        return new RestApiResponse<>(ResponseCode.REQUEST_SUCCESS_MESSAGE, ResponseCode.REQUEST_SUCCESS, publisherCreateResult);
+    }
 }

@@ -1,5 +1,7 @@
 package service;
 
+import exception.DolphinValidateException;
+import exception.StandardErrorInfo;
 import mapper.BookMapper;
 import mapper.PublisherMapper;
 import mapper.ShelfMapper;
@@ -25,5 +27,17 @@ public class PublisherService {
 
     public List<Publisher> getAll() {
         return publisherMapper.getAll();
+    }
+
+    public int create(Publisher publisher) {
+        Publisher dbPublisher = publisherMapper.findPublisherByName(publisher.getName());
+        if (dbPublisher == null) {
+            publisher.setStatus(1);
+            publisher.setAddDate(new Date());
+            publisher.setUpdateDate(new Date());
+            return publisherMapper.create(publisher);
+        } else {
+            throw new DolphinValidateException(StandardErrorInfo.DUPLICATE_DATA_ERROR, StandardErrorInfo.DUPLICATE_DATA_ERROR_MESSAGE);
+        }
     }
 }

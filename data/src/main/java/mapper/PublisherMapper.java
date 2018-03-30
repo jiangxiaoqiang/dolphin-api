@@ -10,4 +10,8 @@ import java.util.List;
  */
 public interface PublisherMapper {
     List<Publisher> getAll();
+
+    int create(Publisher publisher);
+
+    Publisher findPublisherByName(String name);
 }
