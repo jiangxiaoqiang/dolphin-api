@@ -35,17 +35,19 @@
     </select>
 
     <insert id="createBook" parameterType="model.Book">
-        INSERT INTO shelf(
+        INSERT INTO book(
         id,
         name,
         isbn,
         price,
-        publisher)
+        publisher,
+        author)
         VALUES(
         #{id},
         #{name},
         #{isbn},
         #{price},
-        #{publisher})
+        #{publisher},
+        #{author})
     </insert>
 </mapper>
