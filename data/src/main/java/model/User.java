@@ -22,4 +22,10 @@ public class User {
      * 电话号码
      */
     private String phone;
+
+    private String salt;
+
+    private String saltedPassword;
+
+    private String password;
 }

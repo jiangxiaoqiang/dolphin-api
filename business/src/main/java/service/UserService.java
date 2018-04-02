@@ -18,4 +18,10 @@ public class UserService {
     public int createUser(User user) {
         return userMapper.createUser(user);
     }
+
+    public User getUserByName(String userName) {
+        return userMapper.getUserByName(userName);
+    }
+
+
 }

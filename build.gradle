@@ -63,6 +63,9 @@ project(":common") {
 
     dependencies {
         compile("org.springframework:spring-context:" + springVersion)
+        compile('commons-codec:commons-codec:1.10')
+        compile group: 'org.apache.tomcat', name: 'tomcat-juli', version: property('tomcat.version')
+
     }
 }
 

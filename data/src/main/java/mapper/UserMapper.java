@@ -10,4 +10,8 @@ public interface UserMapper {
     public default int createUser(User user) {
         return 0;
     }
+
+    User getUserById();
+
+    User getUserByName(String userName);
 }

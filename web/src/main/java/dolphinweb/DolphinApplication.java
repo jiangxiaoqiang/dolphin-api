@@ -20,6 +20,7 @@ import java.net.URLClassLoader;
 @ComponentScan(basePackages = {
         "dolphinweb.controllers",
         "service",
+        "utils",
         "mapper",
         "dolphinweb.config",
         "combine"})
