@@ -29,6 +29,11 @@ public class PublisherService {
         return publisherMapper.getAll();
     }
 
+    /**
+     * 添加出版社
+     * @param publisher
+     * @return
+     */
     public int create(Publisher publisher) {
         Publisher dbPublisher = publisherMapper.findPublisherByName(publisher.getName());
         if (dbPublisher == null) {
