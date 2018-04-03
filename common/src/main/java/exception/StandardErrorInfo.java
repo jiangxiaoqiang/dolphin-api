@@ -14,4 +14,7 @@ public class StandardErrorInfo {
 
     public static final int DUPLICATE_DATA_ERROR = 400005;
     public static final String DUPLICATE_DATA_ERROR_MESSAGE = "重复数据";
+
+    public static final int DATA_RELATION_ERROR = 400006;
+    public static final String DATA_RELATION_ERROR_MESSAGE = "数据关联异常";
 }

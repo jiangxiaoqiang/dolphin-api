@@ -34,6 +34,19 @@
         where ID in CONCAT('%', #{ids}, '%')
     </select>
 
+    <select id="getBooksByIdList" parameterType="String" resultMap="Book">
+        SELECT *
+        FROM book
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="list != null">
+                AND ID IN
+                <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </trim>
+    </select>
+
     <insert id="createBook" parameterType="model.Book">
         INSERT INTO book(
         id,

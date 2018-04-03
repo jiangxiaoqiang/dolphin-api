@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import service.BookService;
 import model.Book;
+import sun.rmi.runtime.Log;
 
 import java.util.List;
 
@@ -14,11 +15,11 @@ import java.util.List;
  * Created by dolphin on 13/6/2017.
  */
 @RestController
-@RequestMapping("/api/book")
+@RequestMapping("/dolphin/api/book")
 public class BookController {
 
 
-   // @Autowired
+    // @Autowired
     //public ScalaBookService bookServiceScala;
 
     @Autowired
@@ -57,16 +58,18 @@ public class BookController {
 
     @CrossOrigin
     @GetMapping()
-    public RestApiResponse<List<Book>> getBooksByName(@RequestParam String name){
+    public RestApiResponse<List<Book>> getBooksByName(@RequestParam String name) {
         RestApiResponse restApiResponse = new RestApiResponse();
         restApiResponse.setCode(ResponseCode.REQUEST_SUCCESS);
         restApiResponse.setMessage(ResponseCode.REQUEST_SUCCESS_MESSAGE);
         List<Book> books = bookService.getBooksByName(name);
-
-
-
-
         restApiResponse.setData(books);
         return restApiResponse;
+    }
+
+    @GetMapping("/all/{id}")
+    public RestApiResponse<List<Book>> getAllBooks(@PathVariable Long id) {
+        List<Book> books = bookService.getAllBooks(id);
+        return new RestApiResponse<>(ResponseCode.REQUEST_SUCCESS_MESSAGE, ResponseCode.REQUEST_SUCCESS, books);
     }
 }
