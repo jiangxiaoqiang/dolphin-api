@@ -67,6 +67,7 @@ public class BookController {
         return restApiResponse;
     }
 
+    @CrossOrigin
     @GetMapping("/all/{id}")
     public RestApiResponse<List<Book>> getAllBooks(@PathVariable Long id) {
         List<Book> books = bookService.getAllBooks(id);
