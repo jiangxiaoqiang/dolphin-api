@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import service.ShelfService;
 import service.BookService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -39,10 +40,7 @@ public class ShelfController {
 
     @CrossOrigin
     @PostMapping("add")
-    public RestApiResponse<Integer> addShelfBook(@RequestBody Book book) {
-        if (StringUtils.isBlank(book.getIsbn())) {
-            throw new DolphinValidateException(StandardErrorInfo.ISBN_NULL_ERROR, StandardErrorInfo.ISBN_NULL_ERROR_MESSAGE);
-        }
+    public RestApiResponse<Integer> addShelfBook(@RequestBody @Valid Book book) {
         /**
          * 已经存在书籍
          * 直接添加书籍与用户的关联关系
