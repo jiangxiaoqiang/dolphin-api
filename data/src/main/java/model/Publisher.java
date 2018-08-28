@@ -5,7 +5,9 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * Created by hldev on 18-3-28.
+ *
+ * @author hldev
+ * @date 18-3-28
  */
 @Data
 public class Publisher
