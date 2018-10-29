@@ -43,7 +43,6 @@ public class ShelfService {
         shelf.setState(1);
         shelf.setAddDate(new Date());
         shelf.setUpdateDate(new Date());
-        shelf.setId(UUID.randomUUID().toString());
         return shelfMapper.createShelf(shelf);
     }
 }

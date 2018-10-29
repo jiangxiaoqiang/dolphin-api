@@ -7,12 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import service.BookService;
 import model.Book;
-<<<<<<< HEAD
 //import service.ScalaBookService;
-=======
 import sun.rmi.runtime.Log;
->>>>>>> 3053db34b8b489f119f6dc746ec03e7bb6a49212
-
 import java.util.List;
 
 /**
@@ -21,15 +17,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/dolphin/api/book")
 public class BookController {
-
-
-<<<<<<< HEAD
-    /*@Autowired
-    public ScalaBookService bookServiceScala;*/
-=======
-    // @Autowired
-    //public ScalaBookService bookServiceScala;
->>>>>>> 3053db34b8b489f119f6dc746ec03e7bb6a49212
 
     @Autowired
     @Qualifier(value = "bookService")
