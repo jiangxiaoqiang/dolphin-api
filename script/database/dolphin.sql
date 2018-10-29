@@ -1,43 +1,71 @@
+--
+-- PostgreSQL database dump
+--
 
--- Table: public.book
+-- Dumped from database version 9.6.6
+-- Dumped by pg_dump version 10.5
 
--- DROP TABLE public.book;
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
 
-CREATE TABLE public.book
-(
-    id bigint NOT NULL,
-    name character varying(512) COLLATE pg_catalog."default" NOT NULL,
-    isbn character varying(32) COLLATE pg_catalog."default" NOT NULL,
-    author character varying(256)[] COLLATE pg_catalog."default" NOT NULL,
-    publisher character varying(256) COLLATE pg_catalog."default" NOT NULL,
-    price character varying COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT book_pkey PRIMARY KEY (id),
-    CONSTRAINT id_uniq UNIQUE (id),
-    CONSTRAINT isbn_uniq UNIQUE (isbn)
-)
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
+DROP DATABASE IF EXISTS postgres;
+--
+-- Name: postgres; Type: DATABASE; Schema: -; Owner: cloudsqlsuperuser
+--
 
-ALTER TABLE public.book
-    OWNER to postgres;
-COMMENT ON TABLE public.book
-    IS 'book';
-
-COMMENT ON COLUMN public.book.author
-    IS 'author';
-
-COMMENT ON COLUMN public.book.publisher
-    IS 'publisher';
-
-COMMENT ON COLUMN public.book.price
-    IS 'price';
-
-COMMENT ON CONSTRAINT id_uniq ON public.book
-    IS 'id uniq constraint';
-COMMENT ON CONSTRAINT isbn_uniq ON public.book
-    IS 'isbn uniq constraint';
+CREATE DATABASE postgres WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.UTF8' LC_CTYPE = 'en_US.UTF8';
 
 
+ALTER DATABASE postgres OWNER TO cloudsqlsuperuser;
+
+\connect postgres
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: DATABASE postgres; Type: COMMENT; Schema: -; Owner: cloudsqlsuperuser
+--
+
+COMMENT ON DATABASE postgres IS 'default administrative connection database';
+
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+--
+-- Name: SCHEMA public; Type: ACL; Schema: -; Owner: cloudsqlsuperuser
+--
+
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
 

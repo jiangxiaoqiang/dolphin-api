@@ -15,10 +15,26 @@ import java.util.Date;
 @Data
 public class Shelf implements Serializable{
 
-    private String id;
+    private Long id;
+
+    /**
+     * 对外暴露
+     */
+    private String uuid;
 
     @NotEmpty(message="书ID不能为空")
     private Long bookId;
+
+    /**
+     * 存储ISBN
+     * 书架的书不会因为ID的变化失去关联关系
+     */
+    private String isbn;
+
+    /**
+     * 存放位置
+     */
+    private String store_area;
 
     @NotEmpty(message="用户ID不能为空")
     private Long userId;
@@ -26,5 +42,10 @@ public class Shelf implements Serializable{
     private Date addDate;
 
     private Date updateDate;
+
+    /**
+     * 1.正常
+     * -1.删除
+     */
     private Integer state;
 }

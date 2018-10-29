@@ -14,7 +14,17 @@ public class Publisher
 {
     private Integer id;
     private String name;
+
+    /**
+     * 出版商代码
+     */
     private String code;
+
+    /**
+     * 出版社所属国家
+     */
+    private String country;
+
     private Date addDate;
     private Date updateDate;
     private Integer status;
