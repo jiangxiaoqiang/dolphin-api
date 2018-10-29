@@ -5,7 +5,6 @@ import com.zaxxer.hikari.HikariDataSource;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,7 +17,7 @@ import javax.sql.DataSource;
  */
 @Data
 @Component
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:unuse-application.properties")
 @ConfigurationProperties(prefix = "spring.datasource.hikari")
 public class DataSourceConfig {
 

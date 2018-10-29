@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.PublisherMapper">
+    <resultMap id="Publisher" type="model.Publisher">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="code" property="code"/>
+        <result column="add_date" property="addDate"/>
+        <result column="update_date" property="updateDate"/>
+    </resultMap>
+
+    <select id="getAll" resultMap="Publisher">
+        SELECT *
+        FROM publisher
+        where status = 1
+    </select>
+
+    <select id="findPublisherByName" parameterType="String" resultMap="Publisher">
+        SELECT *
+        FROM publisher
+        where name = #{name}
+    </select>
+
+    <insert id="create" parameterType="model.Publisher">
+        INSERT INTO publisher(
+        name,
+        code,
+        add_date,
+        update_date,
+        status)
+        VALUES(
+        #{name},
+        #{code},
+        #{addDate},
+        #{updateDate},
+        #{status})
+    </insert>
+</mapper>

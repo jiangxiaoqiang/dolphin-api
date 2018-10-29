@@ -7,6 +7,8 @@ import model.Shelf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -38,6 +40,9 @@ public class ShelfService {
         Shelf shelf = new Shelf();
         shelf.setBookId(book.getId());
         shelf.setUserId(userId);
+        shelf.setState(1);
+        shelf.setAddDate(new Date());
+        shelf.setUpdateDate(new Date());
         shelf.setId(UUID.randomUUID().toString());
         return shelfMapper.createShelf(shelf);
     }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.AuthorMapper">
+    <resultMap id="Author" type="model.Author">
+        <result column="name" property="name"/>
+        <result column="id" property="id"/>
+        <result column="country" property="country"/>
+        <result column="add_date" property="addDate"/>
+        <result column="update_date" property="updateDate"/>
+    </resultMap>
+
+    <insert id="createAuthor" parameterType="model.Author">
+        INSERT INTO author(
+        id,
+        name,
+        country,
+        add_date,
+        update_date)
+        VALUES(
+        #{id},
+        #{name},
+        #{country},
+        #{addDate},
+        #{updateDate})
+    </insert>
+</mapper>

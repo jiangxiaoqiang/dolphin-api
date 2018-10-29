@@ -2,30 +2,30 @@ package model;
 
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * @author jiangtingqiang@gmail.com
  * @create 2017-08-06-10:43 PM
  */
 @Data
-public class User {
+public class Author {
     /**
      * 主键
      */
     private Long id;
 
     /**
-     * 用户名
+     * 作者名字
      */
     private String name;
 
     /**
-     * 电话号码
+     * 国家
      */
-    private String phone;
+    private Integer country;
 
-    private String salt;
+    private Date addDate;
 
-    private String saltedPassword;
-
-    private String password;
+    private Date updateDate;
 }

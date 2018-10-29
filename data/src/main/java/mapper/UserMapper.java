@@ -7,5 +7,11 @@ import model.User;
  * @create 2017-08-06-10:46 PM
  */
 public interface UserMapper {
-    public int createUser(User user);
+    public default int createUser(User user) {
+        return 0;
+    }
+
+    User getUserById();
+
+    User getUserByName(String userName);
 }

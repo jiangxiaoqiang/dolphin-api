@@ -21,7 +21,7 @@ CURRENT_TIME=`date '+%Y%m%d%H%M%S'`
 #constant
 readonly SERVER_APP_PATH="/opt/dolphin/backend"
 readonly CONFIG_FILE="application.properties"
-readonly LOGIN_USER="pi"
+readonly LOGIN_USER="root"
 readonly LOCAL_PATH="./web/build/libs"
 
 # Read program version number

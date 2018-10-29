@@ -1,6 +1,7 @@
 package model;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * Created by dolphin on 23/6/2017.
@@ -15,26 +16,31 @@ public class Book {
     /**
      * 书名
      */
+    @NotEmpty(message="书名不能为空")
     private String name;
 
     /**
      * isbn
      */
+    @NotEmpty(message="ISBN不能为空")
     private String isbn;
 
     /**
      * 作者
      */
+    @NotEmpty(message="作者不能为空")
     private String author;
 
     /**
      * 出版社
      */
+    @NotEmpty(message="出版社不能为空")
     private String publisher;
 
     /**
      * 价格
      */
+    @NotEmpty(message="价格不能为空")
     private String price;
 
     /**

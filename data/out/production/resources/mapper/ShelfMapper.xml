@@ -22,12 +22,14 @@
         book_id,
         user_id,
         add_date,
-        update_date)
+        update_date,
+        state)
         VALUES(
         #{id},
         #{bookId},
         #{userId},
         #{addDate},
-        #{updateDate})
+        #{updateDate},
+        #{state})
     </insert>
 </mapper>

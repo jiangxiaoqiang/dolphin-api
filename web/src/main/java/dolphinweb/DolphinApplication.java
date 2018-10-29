@@ -1,5 +1,6 @@
 package dolphinweb;
 
+import model.Book;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +9,8 @@ import org.springframework.boot.system.ApplicationPidFileWriter;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.net.URL;
 import java.net.URLClassLoader;
 
@@ -17,6 +20,7 @@ import java.net.URLClassLoader;
 @ComponentScan(basePackages = {
         "dolphinweb.controllers",
         "service",
+        "utils",
         "mapper",
         "dolphinweb.config",
         "combine"})

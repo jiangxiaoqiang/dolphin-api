@@ -7,24 +7,29 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import service.BookService;
 import model.Book;
+<<<<<<< HEAD
 //import service.ScalaBookService;
+=======
+import sun.rmi.runtime.Log;
+>>>>>>> 3053db34b8b489f119f6dc746ec03e7bb6a49212
 
 import java.util.List;
 
 /**
  * Created by dolphin on 13/6/2017.
  */
-//表明这是一个 Controller
-//@Controller
-
-//RestController是一种Rest风格的Controller，可以直接返回对象而不返回视图，返回的对象可以使JSON，XML等
 @RestController
-@RequestMapping("/api/book")
+@RequestMapping("/dolphin/api/book")
 public class BookController {
 
 
+<<<<<<< HEAD
     /*@Autowired
     public ScalaBookService bookServiceScala;*/
+=======
+    // @Autowired
+    //public ScalaBookService bookServiceScala;
+>>>>>>> 3053db34b8b489f119f6dc746ec03e7bb6a49212
 
     @Autowired
     @Qualifier(value = "bookService")
@@ -62,16 +67,19 @@ public class BookController {
 
     @CrossOrigin
     @GetMapping()
-    public RestApiResponse<List<Book>> getBooksByName(@RequestParam String name){
+    public RestApiResponse<List<Book>> getBooksByName(@RequestParam String name) {
         RestApiResponse restApiResponse = new RestApiResponse();
         restApiResponse.setCode(ResponseCode.REQUEST_SUCCESS);
         restApiResponse.setMessage(ResponseCode.REQUEST_SUCCESS_MESSAGE);
         List<Book> books = bookService.getBooksByName(name);
-
-
-
-
         restApiResponse.setData(books);
         return restApiResponse;
+    }
+
+    @CrossOrigin
+    @GetMapping("/all/{id}")
+    public RestApiResponse<List<Book>> getAllBooks(@PathVariable Long id) {
+        List<Book> books = bookService.getAllBooks(id);
+        return new RestApiResponse<>(ResponseCode.REQUEST_SUCCESS_MESSAGE, ResponseCode.REQUEST_SUCCESS, books);
     }
 }
