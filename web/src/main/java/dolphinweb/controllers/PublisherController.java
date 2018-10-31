@@ -35,6 +35,13 @@ public class PublisherController {
     }
 
     @CrossOrigin
+    @GetMapping("/match")
+    public RestApiResponse<List<Publisher>> getMatch(String publisherName) {
+        List<Publisher> publisherList = publisherService.getMatch(publisherName);
+        return new RestApiResponse<>(ResponseCode.REQUEST_SUCCESS_MESSAGE, ResponseCode.REQUEST_SUCCESS, publisherList);
+    }
+
+    @CrossOrigin
     @PostMapping("")
     public RestApiResponse<Integer> create(@RequestBody Publisher publisher) {
         if(StringUtils.isBlank(publisher.getName())){

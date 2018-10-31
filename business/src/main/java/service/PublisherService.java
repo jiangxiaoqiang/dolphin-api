@@ -29,6 +29,10 @@ public class PublisherService {
         return publisherMapper.getAll();
     }
 
+    public List<Publisher> getMatch(String publisherName) {
+        return publisherMapper.getMatch(publisherName);
+    }
+
     /**
      * 添加出版社
      * @param publisher

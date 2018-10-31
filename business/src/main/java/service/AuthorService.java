@@ -23,9 +23,9 @@ public class AuthorService {
     private AuthorMapper authorMapper;
 
     public int create(Author author) {
-        //author.setAddDate(new Date());
-        //author.setUpdateDate(new Date());
-        //author.setCountry(1);
+        author.setAddDate(new Date());
+        author.setUpdateDate(new Date());
+        author.setCountry(1);
         int result = authorMapper.createAuthor(author);
         return result;
     }
