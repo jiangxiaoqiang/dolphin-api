@@ -16,6 +16,13 @@
         where status = 1
     </select>
 
+    <select id="getMatch" parameterType="String" resultMap="Publisher">
+        SELECT *
+        FROM publisher
+        where status = 1
+        and name like CONCAT('%', #{publisherName}, '%')
+    </select>
+
     <select id="findPublisherByName" parameterType="String" resultMap="Publisher">
         SELECT *
         FROM publisher
