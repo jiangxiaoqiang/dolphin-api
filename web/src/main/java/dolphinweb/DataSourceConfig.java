@@ -17,7 +17,7 @@ import javax.sql.DataSource;
  */
 @Data
 @Component
-@PropertySource("classpath:unuse-application.properties")
+@PropertySource("classpath:application.properties")
 @ConfigurationProperties(prefix = "spring.datasource.hikari")
 public class DataSourceConfig {
 
@@ -37,6 +37,7 @@ public class DataSourceConfig {
         hikariConfig.setJdbcUrl(jdbcUrl);
         hikariConfig.setUsername(username);
         hikariConfig.setPassword(password);
+        hikariConfig.setConnectionTestQuery("select 1");
         HikariDataSource dataSource = new HikariDataSource(hikariConfig);
         return dataSource;
     }

@@ -119,10 +119,10 @@ project(":web") {
         compile project(':common')
         compile project(':data')
         compile project(':composite')
-        compile('com.zaxxer:HikariCP:2.6.0')
+        compile("com.zaxxer:HikariCP:2.6.0")
         compile("mysql:mysql-connector-java:5.1.24")
-        compile('org.springframework.boot:spring-boot-starter-web')
-        compile('org.springframework.boot:spring-boot-starter')
+        compile("org.springframework.boot:spring-boot-starter-web")
+        compile("org.springframework.boot:spring-boot-starter")
         compile group: 'org.apache.tomcat', name: 'tomcat-juli', version: property('tomcat.version')
         compile("org.projectlombok:lombok:1.16.14")
         compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
@@ -152,10 +152,10 @@ project(":data") {
         compile project(':dolphin-mybatis')
         compile("org.projectlombok:lombok:1.16.14")
         compile("com.zaxxer:HikariCP:2.6.0")
-        compile("postgresql:postgresql:9.0-801.jdbc4")
+        compile("postgresql:postgresql:9.3-1100-jdbc41")
         compile("org.hibernate:hibernate-validator:5.2.4.Final")
         compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
-        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+        compile("org.apache.commons:commons-lang3:3.5")
         compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.24'
         compile group: 'org.mybatis', name: 'mybatis', version: '3.4.2'
         compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: '1.0.2'
